@@ -129,6 +129,7 @@ function MessageStream:input_message(msg)
   self.current_msg = msg
 
   -- handle states (update display accordingly)
+  if self.process.display == nil then return end
   local state_ctrl = self.process.display.state_ctrl
   state_ctrl:handle_message(msg)
 
