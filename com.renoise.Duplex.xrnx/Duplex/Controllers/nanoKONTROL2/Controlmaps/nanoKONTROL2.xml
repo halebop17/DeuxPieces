@@ -60,14 +60,14 @@
         </Group>
                 
         <Group name="Faders" orientation="horizontal">
-          <Param value="CC#0" type="fader" name="Fader #1"  orientation="vertical" size="4"  maximum="127" minimum="0"/>
-          <Param value="CC#1" type="fader" name="Fader #2"  orientation="vertical" size="4"  maximum="127" minimum="0"/>
-          <Param value="CC#2" type="fader" name="Fader #3"  orientation="vertical" size="4"  maximum="127" minimum="0"/>
-          <Param value="CC#3" type="fader" name="Fader #4"  orientation="vertical" size="4"  maximum="127" minimum="0"/>
-          <Param value="CC#4" type="fader" name="Fader #5"  orientation="vertical" size="4"  maximum="127" minimum="0"/>
-          <Param value="CC#5" type="fader" name="Fader #6"  orientation="vertical" size="4"  maximum="127" minimum="0"/>
-          <Param value="CC#6" type="fader" name="Fader #7"  orientation="vertical" size="4"  maximum="127" minimum="0"/>
-          <Param value="CC#7" type="fader" name="Fader #8"  orientation="vertical" size="4"  maximum="127" minimum="0"/>
+          <Param value="CC#0" type="fader" name="Fader #1"  orientation="vertical" size="4"  maximum="127" minimum="0" skip_echo="true"/>
+          <Param value="CC#1" type="fader" name="Fader #2"  orientation="vertical" size="4"  maximum="127" minimum="0" skip_echo="true"/>
+          <Param value="CC#2" type="fader" name="Fader #3"  orientation="vertical" size="4"  maximum="127" minimum="0" skip_echo="true"/>
+          <Param value="CC#3" type="fader" name="Fader #4"  orientation="vertical" size="4"  maximum="127" minimum="0" skip_echo="true"/>
+          <Param value="CC#4" type="fader" name="Fader #5"  orientation="vertical" size="4"  maximum="127" minimum="0" skip_echo="true"/>
+          <Param value="CC#5" type="fader" name="Fader #6"  orientation="vertical" size="4"  maximum="127" minimum="0" skip_echo="true"/>
+          <Param value="CC#6" type="fader" name="Fader #7"  orientation="vertical" size="4"  maximum="127" minimum="0" skip_echo="true"/>
+          <Param value="CC#7" type="fader" name="Fader #8"  orientation="vertical" size="4"  maximum="127" minimum="0" skip_echo="true"/>
         </Group>
         
         <Group name="Buttons1" orientation="horizontal" columns="8">

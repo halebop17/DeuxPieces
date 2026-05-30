@@ -37,19 +37,18 @@ duplex_configurations:insert {
         stop_playback =  { group_name = "Transport", index = 3 },
         start_playback = { group_name = "Transport", index = 4 },
         edit_mode =      { group_name = "Transport", index = 5 },
-        metronome_toggle = {
-          group_name = "MARKER",
-          index = 1,
-        },
       },
       options = {}
     },
     TrackSelector = {
       mappings = {
         select_track = { group_name = "Buttons3", index = 1 },
-        prev_page = { group_name = "TRACK",  index = 1 },
-        next_page = { group_name = "TRACK",  index = 2 },
+        prev_page  = { group_name = "MARKER", index = 2 },
+        next_page  = { group_name = "MARKER", index = 3 },
+        prev_track = { group_name = "TRACK",  index = 1 },
+        next_track = { group_name = "TRACK",  index = 2 },
       },
+      options = { page_size = 8 }
     },
     MidiActions_DSP = {
       application = "MidiActions",
@@ -80,8 +79,7 @@ duplex_configurations:insert {
     },
     SwitchConfiguration = {
       mappings = {
-        goto_previous = { group_name = "MARKER", index = 2 },
-        goto_next = { group_name = "MARKER", index = 3 },
+        goto_next = { group_name = "MARKER", index = 1 },
       },
     },
   }
@@ -125,19 +123,18 @@ duplex_configurations:insert {
         stop_playback =  { group_name = "Transport", index = 3 },
         start_playback = { group_name = "Transport", index = 4 },
         edit_mode =      { group_name = "Transport", index = 5 },
-        metronome_toggle = {
-          group_name = "MARKER",
-          index = 1,
-        },
       },
       options = {}
     },
     TrackSelector = {
       mappings = {
-        prev_page = { group_name = "TRACK",  index = 1 },
-        next_page = { group_name = "TRACK",  index = 2 },
+        prev_page  = { group_name = "MARKER", index = 2 },
+        next_page  = { group_name = "MARKER", index = 3 },
+        prev_track = { group_name = "TRACK",  index = 1 },
+        next_track = { group_name = "TRACK",  index = 2 },
         select_track = { group_name = "Buttons3", index = 1, },
       },
+      options = { page_size = 8 }
     },
     MidiActions_DSP = {
       application = "MidiActions",
@@ -168,8 +165,7 @@ duplex_configurations:insert {
     },
     SwitchConfiguration = {
       mappings = {
-        goto_previous = { group_name = "MARKER", index = 2 },
-        goto_next = { group_name = "MARKER", index = 3 },
+        goto_previous = { group_name = "MARKER", index = 1 },
       },
     },
   }
