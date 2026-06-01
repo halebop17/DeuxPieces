@@ -47,14 +47,14 @@ function NanoKontrol2:clear_buttons()
   for _,group in pairs(self.control_map.groups) do
     for _,param in ipairs(group) do
       local xarg = param.xarg
-      if xarg and (xarg.type == "button") and xarg.value then
-        if (self:determine_type(xarg.value) == DEVICE_MESSAGE.MIDI_CC) then
-          local cc = self:extract_midi_cc(xarg.value)
-          local channel = self:extract_midi_channel(xarg.value)
-            or self.default_midi_channel
-          if cc then
-            self:send_cc_message(cc,0,channel)
-          end
+      if xarg and (xarg.type == "button") and xarg.value
+        and xarg.value:find("CC#")
+      then
+        local cc = self:extract_midi_cc(xarg.value)
+        local channel = tonumber(self:extract_midi_channel(xarg.value))
+          or self.default_midi_channel
+        if cc then
+          self:send_cc_message(cc,0,channel)
         end
       end
     end
