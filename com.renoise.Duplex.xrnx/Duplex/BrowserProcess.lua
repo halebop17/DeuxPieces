@@ -395,7 +395,15 @@ function BrowserProcess:invalidate()
     if (self:control_surface_visible()) then
       self:hide_control_surface()
     end
-    
+
+    -- turn the device LEDs off before closing the ports, so a controller that
+    -- is shared with other software (e.g. NanoKontrol2 in DaVinci) doesn't keep
+    -- showing stale Renoise state. Covers "Release all devices" and a graceful
+    -- Renoise quit. Opt-in: only devices implementing clear_buttons.
+    if (self.device.clear_buttons) then
+      self.device:clear_buttons()
+    end
+
     self.device:release()
     self.device = nil
   end
