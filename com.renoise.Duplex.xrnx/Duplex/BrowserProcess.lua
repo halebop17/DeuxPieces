@@ -775,6 +775,11 @@ function BrowserProcess:on_window_became_active()
     for _,app in pairs(self._applications) do
       app:on_window_became_active()
     end
+    -- restore device LEDs that were blanked on focus-loss (see below):
+    -- re-send the full current state via the display
+    if (self.device and self.device.clear_buttons and self.display) then
+      self.display:clear()
+    end
   end
 end
 
@@ -789,6 +794,12 @@ function BrowserProcess:on_window_resigned_active()
   if (self:instantiated()) then
     for _,app in pairs(self._applications) do
       app:on_window_resigned_active()
+    end
+    -- turn the device LEDs off when Renoise loses focus, so a controller that
+    -- is shared with other software doesn't keep displaying stale Renoise state
+    -- (opt-in: only devices that implement clear_buttons, e.g. NanoKontrol2)
+    if (self.device and self.device.clear_buttons) then
+      self.device:clear_buttons()
     end
   end
 end
