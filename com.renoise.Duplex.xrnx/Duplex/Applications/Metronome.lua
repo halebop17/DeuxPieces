@@ -107,13 +107,22 @@ end
 --------------------------------------------------------------------------------
 
 --- attach notifier to the song, handle changes
+-- (guard with has_notifier so repeated calls - e.g. on_new_document -
+--  don't stack duplicate notifiers)
 
 function Metronome:_attach_to_song()
 
-  rns.transport.metronome_enabled_observable:add_notifier(
-    function()
-      self:update()
-    end
-  )
+  local obs = rns.transport.metronome_enabled_observable
+  if not obs:has_notifier(self, Metronome._on_metronome_changed) then
+    obs:add_notifier(self, Metronome._on_metronome_changed)
+  end
 
+end
+
+--------------------------------------------------------------------------------
+
+--- called when the metronome enabled-state changes in Renoise
+
+function Metronome:_on_metronome_changed()
+  self:update()
 end
